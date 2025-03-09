@@ -1,0 +1,41 @@
+{
+  "tokenActionHud": {
+    "demonlord": {
+      "armor": "Armor",
+      "containers": "Containers",
+      "consumables": "Consumables",
+      "equipment": "Equipment",
+      "expendFortune" : "Expend Fortune",
+      "inventory": "Inventory",
+      "item": "Item",
+      "weapons": "Weapons",
+      "treasure": "Treasure",
+      "settings": {      
+        "displayUnequipped": {
+          "hint": "Choose whether to display unequipped items on the HUD",
+          "name": "Display Unequipped"
+        },
+        "displayProfessions": {
+          "hint": "Choose whether to display professions on the HUD",
+          "name": "Display Professions"
+        },
+        "displayLanguages": {
+          "hint": "Choose whether to display languages on the HUD",
+          "name": "Display Languages"
+        },
+        "displayTalents": {
+          "hint": "Choose whether to display talents on the HUD",
+          "name": "Display Talents"
+        },
+        "displayFeatures": {
+          "hint": "Choose whether to display features on the HUD",
+          "name": "Display Features"
+        },
+        "displayTraits": {
+          "hint": "Choose whether to display traits on the HUD",
+          "name": "Display Traits"
+        }
+      }
+    }
+  }
+}
