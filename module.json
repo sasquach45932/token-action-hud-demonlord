@@ -8,9 +8,8 @@
       "url": "https://github.com/sasquach45932/"
     }
   ],
-  "url": "This is auto replaced",
   "flags": {},
-  "version": "This is auto replaced",
+  "version": "#{VERSION}#",
   "compatibility": {
     "minimum": "12"
   },
@@ -58,10 +57,11 @@
       "optional": []
     }
   },
-  "socket": false,
-  "manifest": "This is auto replaced",
-  "download": "This is auto replaced",
-  "readme": "https://github.com/Larkinabout/fvtt-token-action-hud-template#readme",
+  "url": "#{URL}#",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#",
+  "license": "LICENSE",
+  "readme": "README.md",
   "protected": false,
   "coreTranslation": false,
   "library": false
