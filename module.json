@@ -61,8 +61,5 @@
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#",
   "license": "LICENSE",
-  "readme": "README.md",
-  "protected": false,
-  "coreTranslation": false,
-  "library": false
+  "readme": "README.md"
 }
