@@ -152,17 +152,7 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 			img = "icons/sundries/gaming/dice-runed-brown.webp"
 			cssClass = !this.actor.system.fastturn ? "" : "toggle active"
 			array.push({ name, id: "fastturn", encodedValue: encodedValue, cssClass: cssClass, img: img })
-
-			let combatantFound = null
-			for (const combatant of game.combat.combatants) {
-				if (combatant.actor?._id === this.actor._id) {
-					combatantFound = combatant
-				}
-			}
-
-			if (combatantFound) {
-				this.addActions(array, { id: "initiative", type: "system" })
-			}
+			this.addActions(array, { id: "initiative", type: "system" })
 		}
 
 		#buildRest() {
