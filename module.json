@@ -12,15 +12,12 @@
   "version": "#{VERSION}#",
   "compatibility": {
     "minimum": "12",
-    "verified": "12"
+    "verified": "13"
   },
   "esmodules": [
     "./scripts/init.js"
   ],
   "scripts": [
-  ],
-  "styles": [
-    "./styles/tah-template-style.css"
   ],
   "languages": [
     {
