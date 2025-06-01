@@ -11,7 +11,7 @@
   "flags": {},
   "version": "#{VERSION}#",
   "compatibility": {
-    "minimum": "13",
+    "minimum": "12",
     "verified": "13"
   },
   "esmodules": [
@@ -45,7 +45,7 @@
         "type": "module",
         "compatibility": [
           {
-            "minimum": "2.0"
+            "minimum": "2.0.13"
           }
         ]
       }
