@@ -17,7 +17,7 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 		 */ a
 		async buildSystemActions(groupIds) {
 			// Set actor and token variables
-			this.actors = !this.actor ? this._getActors() : [this.actor]
+			this.actors = !this.actor ? this.#getActors() : [this.actor]
 			this.actorType = this.actor?.type
 
 			// Settings
@@ -47,6 +47,9 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 					break
 				case "creature":
 					this.#buildCreatureActions()
+					break
+				case "vehicle":
+					this.#buildVehicleActions()
 					break
 				default:
 					break
@@ -83,6 +86,11 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 				spellsArray.push({ name, id: a, info1, encodedValue: encodedValue, img: a.img })
 			}
 			this.addActions(spellsArray, { id: "spells_utility", type: "system" })
+		}
+
+		#getActors() {
+			const allowedTypes = ["character", "creature"]
+			return this.actors.every(actor => allowedTypes.includes(actor.type)) ? this.actors : []
 		}
 
 		#buildTalents() {
@@ -303,6 +311,17 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 			// Talent -> special attack
 			this.#buildCreatureCombat("talent")
 			this.#buildCreatureCombat("endoftheround")
+			if (this.displayTraits) this.#buildTraitsAndFeatures()
+		}
+
+		#buildVehicleActions() {
+			this.#buildInventory()
+			this.#buildMagic()
+			this.#buildChallangeRolls()
+			this.#buildInitiative()
+			//this.#buildCreatureCombat("specialaction")
+			// Talent -> special attack
+			this.#buildCreatureCombat("talent")
 			if (this.displayTraits) this.#buildTraitsAndFeatures()
 		}
 
