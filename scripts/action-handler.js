@@ -131,12 +131,14 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 		}
 
 		#builFortune() {
-			let array = []
-			const name = coreModule.api.Utils.i18n("tokenActionHud.demonlord.expendFortune")
-			const encodedValue = "fortune|" + ""
-			const img = "systems/demonlord/assets/icons/skills/challenge.webp"
-			array.push({ name, id: "fortune", encodedValue: encodedValue, img: img })
-			if (this.actor.system.characteristics.fortune) this.addActions(array, { id: "utility", type: "system" })
+			if (!game.settings.get("demonlord","fortuneHide")){
+				let array = []
+				const name = coreModule.api.Utils.i18n("tokenActionHud.demonlord.expendFortune")
+				const encodedValue = "fortune|" + ""
+				const img = "systems/demonlord/assets/icons/skills/challenge.webp"
+				array.push({ name, id: "fortune", encodedValue: encodedValue, img: img })
+				if (this.actor.system.characteristics.fortune) this.addActions(array, { id: "utility", type: "system" })
+			}
 		}
 
 		#buildCorruption() {
@@ -150,17 +152,37 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 
 		#buildInitiative() {
 			let array = []
-			let name = coreModule.api.Utils.i18n("DL.TurnSlowButton")
-			let encodedValue = "turn|" + "slow"
-			let img = "icons/sundries/gaming/dice-runed-tan.webp"
-			let cssClass = this.actor.system.fastturn ? "" : "toggle active"
-			array.push({ name, id: "slowturn", encodedValue: encodedValue, cssClass: cssClass, img: img })
-			name = coreModule.api.Utils.i18n("DL.TurnFastButton")
-			encodedValue = "turn|" + "fast"
-			img = "icons/sundries/gaming/dice-runed-brown.webp"
-			cssClass = !this.actor.system.fastturn ? "" : "toggle active"
-			array.push({ name, id: "fastturn", encodedValue: encodedValue, cssClass: cssClass, img: img })
-			this.addActions(array, { id: "initiative", type: "system" })
+			if (game.settings.get("demonlord","optionalRuleInitiativeMode") === 's')
+			{
+				let name = coreModule.api.Utils.i18n("DL.TurnSlowButton")
+				let encodedValue = "turn|" + "slow"
+				let img = "icons/sundries/gaming/dice-runed-tan.webp"
+				let cssClass = this.actor.system.fastturn ? "" : "toggle active"
+				array.push({ name, id: "slowturn", encodedValue: encodedValue, cssClass: cssClass, img: img })
+				name = coreModule.api.Utils.i18n("DL.TurnFastButton")
+				encodedValue = "turn|" + "fast"
+				img = "icons/sundries/gaming/dice-runed-brown.webp"
+				cssClass = !this.actor.system.fastturn ? "" : "toggle active"
+				array.push({ name, id: "fastturn", encodedValue: encodedValue, cssClass: cssClass, img: img })
+				this.addActions(array, { id: "initiative", type: "system" })
+			}
+			else
+			{
+				let combatantFound = null
+				for (const combatant of game.combat.combatants) {
+					if (combatant.actor?._id === this.token.actor._id) {
+					combatantFound = combatant
+					}
+				}
+				if (!combatantFound?.initiative)
+				{
+					let name = coreModule.api.Utils.i18n("COMBAT.InitiativeRoll")
+					let img = "icons/sundries/gaming/dice-runed-tan.webp"
+					let encodedValue = "initiative|" + ""
+					array.push({ name, id: "slowturn", encodedValue: encodedValue, img: img })
+					this.addActions(array, { id: "initiative", type: "system" })
+				}
+			}
 		}
 
 		#buildRest() {

@@ -80,9 +80,22 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 					break
 				case "fortune":
 					this.actor.expendFortune()
+					// As of SotDL v5.0.9:
+					await this.actor.update({ 'system.characteristics.fortune': 0 })
 					break
 				case "corruption":
 					this.actor.rollCorruption()
+					break
+				case "initiative":
+					let combatantFound = null
+					for (const combatant of game.combat.combatants) {
+						if (combatant.actor?._id === this.actor._id) {
+						combatantFound = combatant
+						}
+					}
+					if (combatantFound) {
+						await game.combat.rollInitiative(combatantFound._id)
+					}
 					break
 				case "relic":
 					this.actor.rollItem(actionId)

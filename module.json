@@ -1,6 +1,6 @@
 {
   "id": "token-action-hud-demonlord",
-  "title": "Token Action HUD for Demonlord",
+  "title": "Token Action HUD for Demon Lord",
   "description": "Token Action HUD is a repositionable HUD of actions for a selected token",
   "authors": [
     {
@@ -34,7 +34,7 @@
         "type": "system",
         "compatibility": [
           {
-            "minimum": "4.8.3"
+            "minimum": "5.0.10"
           }
         ]
       }
