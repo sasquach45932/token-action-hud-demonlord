@@ -20,9 +20,7 @@
   ],
   "version": "#{VERSION}#",
   "compatibility": {
-    "minimum": "13.0",
-    "verified": "13.340",
-    "maximum": "13.999"
+    "minimum": "13.0"
   },
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
