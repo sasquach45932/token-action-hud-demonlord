@@ -8,17 +8,6 @@
       "url": "https://github.com/sasquach45932/"
     }
   ],
-  "flags": {},
-  "version": "#{VERSION}#",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13"
-  },
-  "esmodules": [
-    "./scripts/init.js"
-  ],
-  "scripts": [
-  ],
   "languages": [
     {
       "lang": "en",
@@ -26,17 +15,28 @@
       "path": "languages/en.json"
     }
   ],
-  "packs": [],
+  "esmodules": [
+    "./scripts/init.js"
+  ],
+  "version": "1.0.6",
+  "compatibility": {
+    "minimum": "13.0",
+    "verified": "13.340",
+    "maximum": "13.999"
+  },
+  "url": "#{URL}#",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#",
+  "license": "LICENSE",
+  "readme": "README.md",
   "relationships": {
     "systems": [
       {
         "id": "demonlord",
         "type": "system",
-        "compatibility": [
-          {
-            "minimum": "5.0.10"
-          }
-        ]
+        "compatibility": {
+          "minimum": "5.0.9"
+        }
       }
     ],
     "requires": [
@@ -48,25 +48,7 @@
             "minimum": "2.0.13"
           }
         ]
-      },
-      {
-        "id": "demonlord",
-        "type": "system",
-        "compatibility": [
-          {
-            "minimum": "5.0.10"
-          }
-        ]
       }
-    ],
-    "optional": [],
-    "flags": {
-      "optional": []
-    }
-  },
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#",
-  "license": "LICENSE",
-  "readme": "README.md"
+    ]
+  }
 }
