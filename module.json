@@ -11,7 +11,7 @@
   "flags": {},
   "version": "#{VERSION}#",
   "compatibility": {
-    "minimum": "12",
+    "minimum": "13",
     "verified": "13"
   },
   "esmodules": [
@@ -46,6 +46,15 @@
         "compatibility": [
           {
             "minimum": "2.0.13"
+          }
+        ]
+      },
+      {
+        "id": "demonlord",
+        "type": "system",
+        "compatibility": [
+          {
+            "minimum": "5.0.10"
           }
         ]
       }
