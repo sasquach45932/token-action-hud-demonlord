@@ -34,7 +34,7 @@
         "id": "demonlord",
         "type": "system",
         "compatibility": {
-          "minimum": "5.4.3"
+          "minimum": "5.5.1"
         }
       }
     ],
