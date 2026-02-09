@@ -88,9 +88,12 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 					break
 				case "initiative":
 					let combatantFound = null
-					for (const combatant of game.combat.combatants) {
-						if (combatant.actor?._id === this.actor._id) {
-						combatantFound = combatant
+					if (game.combat)
+					{
+						for (const combatant of game.combat.combatants) {
+							if (combatant.actor?._id === this.actor._id) {
+							combatantFound = combatant
+							}
 						}
 					}
 					if (combatantFound) {
@@ -123,6 +126,9 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 							this.actor.rollChallenge(actionId)
 						}
 					}
+					break
+				case "lookoutcreatures":
+					this.actor.rollFrightened()
 					break
 				default:
 					this.#handleItemAction(event, token, actor, actionId)

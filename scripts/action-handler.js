@@ -141,6 +141,15 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 			}
 		}
 
+		#buildLookOutCreatures() {
+			let array = []
+			const name = coreModule.api.Utils.i18n("DL.LookOutCreatures")
+			const encodedValue = "lookoutcreatures|" + ""
+			const img = "systems/demonlord/assets/icons/skills/skulls.webp"
+			array.push({ name, id: "lookoutcreatures", encodedValue: encodedValue, img: img })
+			this.addActions(array, { id: "utility", type: "system" })
+		}
+
 		#buildCorruption() {
 			let array = []
 			const name = coreModule.api.Utils.i18n("DL.CharRolCorruption")
@@ -169,12 +178,15 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 			else
 			{
 				let combatantFound = null
-				for (const combatant of game.combat.combatants) {
-					if (combatant.actor?._id === this.token.actor._id) {
-					combatantFound = combatant
+				if (game.combat)
+				{
+					for (const combatant of game.combat.combatants) {
+						if (combatant.actor?._id === this.token.actor._id) {
+						combatantFound = combatant
+						}
 					}
 				}
-				if (!combatantFound?.initiative)
+				if (combatantFound)
 				{
 					let name = coreModule.api.Utils.i18n("COMBAT.InitiativeRoll")
 					let img = "icons/sundries/gaming/dice-runed-tan.webp"
@@ -322,6 +334,7 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 			this.#buildItems()
 			this.#buildContainers()
 			this.#buildRest()
+			this.#buildLookOutCreatures()
 		}
 
 		#buildCreatureActions() {
