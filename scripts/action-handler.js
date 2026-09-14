@@ -143,7 +143,7 @@ Hooks.once("tokenActionHudCoreApiReady", async coreModule => {
 
 		#buildLookOutCreatures() {
 			let array = []
-			const name = coreModule.api.Utils.i18n("DL.LookOutCreatures")
+			const name = coreModule.api.Utils.i18n("DL.FearRoll")
 			const encodedValue = "lookoutcreatures|" + ""
 			const img = "systems/demonlord/assets/icons/skills/skulls.webp"
 			array.push({ name, id: "lookoutcreatures", encodedValue: encodedValue, img: img })
